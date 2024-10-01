@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    # paths:
-    #   - 'src/**'
 
 jobs:
   deploy:
@@ -28,11 +26,17 @@ jobs:
 
       # 4. 프로젝트 빌드
       - name: Build project
-        run: |
-          yarn build
-          ls -la ./dist
+        run: yarn build
 
-      # 5. 빌드된 정적 파일을 gh-pages 브랜치에 배포
+      # 5. Git 설정 추가
+      - name: Setup Git
+        run: |
+          git config --global user.name 'kimpra'
+          git config --global user.email 'dustmqaksdltkfrlfdldi@gmail.com'
+          git init
+          git remote add origin https://github.com/KimPra2989/spline.git
+
+      # 6. 빌드된 정적 파일을 gh-pages 브랜치에 배포
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
