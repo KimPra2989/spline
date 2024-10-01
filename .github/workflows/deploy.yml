@@ -28,7 +28,9 @@ jobs:
 
       # 4. 프로젝트 빌드
       - name: Build project
-        run: yarn build
+        run: |
+          yarn build
+          ls -la ./dist
 
       # 5. 빌드된 정적 파일을 gh-pages 브랜치에 배포
       - name: Deploy to GitHub Pages
@@ -37,3 +39,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           exclude_assets: ".*"
+          force_orphan: true
