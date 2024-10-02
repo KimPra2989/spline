@@ -4,7 +4,7 @@ import Spline from '@splinetool/react-spline'
 export default function App() {
   return (
     <>
-      <Title>Click the Lid!</Title>
+      <Title>Click the Lid!!</Title>
       <Spline scene="https://prod.spline.design/spoYgxpBygpmCQNy/scene.splinecode" />
     </>
   )
